@@ -7,11 +7,13 @@ use App\Entity\CustomerOrder;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -33,7 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * (member / coach / ca_member), géré via les entités liées (Member, Coach, CaMember).
      */
     #[ORM\Column(length: 20)]
-    private ?string $role = 'user';
+    private ?string $siteRole = 'user';
 
     /**
      * @var string The hashed password
@@ -165,19 +167,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getRole(): ?string
     {
-        return $this->role;
+        return $this->siteRole;
     }
 
     public function setRole(string $role): static
     {
-        $this->role = $role;
+        $this->siteRole = $role;
 
         return $this;
-    }
-
-    public function isAdmin(): bool
-    {
-        return $this->role === 'admin';
     }
 
     public function getMember(): ?Member
@@ -289,11 +286,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = ['ROLE_USER'];
 
-        if ($this->role === 'admin') {
+        if ($this->siteRole === 'admin') {
             $roles[] = 'ROLE_ADMIN';
         }
 
         return array_unique($roles);
+    }
+
+        public function isAdmin(): bool
+    {
+        return $this->siteRole === 'admin';
     }
 
     /**

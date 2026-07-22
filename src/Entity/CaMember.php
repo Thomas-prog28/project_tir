@@ -9,9 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
 class CaMember
 {
     #[ORM\Id]
-    #[ORM\OneToOne(inversedBy: 'caMember', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'caMember', targetEntity: User::class, cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(name: 'id_user', referencedColumnName: 'id_user')]
-    private ?user $user = null;
+    private ?User $user = null;
 
     #[ORM\Column(length: 50)]
     private ?string $position = null;

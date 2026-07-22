@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\BowType;
 use App\Repository\MemberRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,12 +10,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Member
 {
     #[ORM\Id]
-    #[ORM\OneToOne(inversedBy: 'member', targetEntity: User::class)]
+    #[ORM\OneToOne(inversedBy: 'member', targetEntity: User::class, cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(name: 'id_user', referencedColumnName: 'id_user')]
     private ?User $user = null;
 
     #[ORM\Column(length: 50)]
     private ?string $licenceNumber = null;
+
+    #[ORM\Column(length: 20, nullable: true, enumType: BowType::class)]
+    private ?BowType  $bowType = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $picture = null;
@@ -39,6 +43,18 @@ class Member
     public function setLicenceNumber(string $licenceNumber): static
     {
         $this->licenceNumber = $licenceNumber;
+
+        return $this;
+    }
+
+    public function getBowType(): ?BowType
+    {
+        return $this->bowType;
+    }
+
+    public function setBowType(?BowType $bowType): static
+    {
+        $this->bowType = $bowType;
 
         return $this;
     }
