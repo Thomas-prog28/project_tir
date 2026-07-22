@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\Entity\CustomerOrder;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints\Collection;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
@@ -54,10 +56,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Event::class)]
     private Collection $events;
 
+    #[ORM\OneToOne(mappedBy: 'user', targetEntity: Cart::class)]
+    private ?Cart $cart = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: CustomerOrder::class)]
+    private Collection $orders;
+
     public function __construct()
     {
         $this->actualities = new ArrayCollection();
         $this->events = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -72,7 +81,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function addActuality(Actuality $actuality): static
     {
-        if ($this->actualities->contains($actuality)) {
+        if (!$this->actualities->contains($actuality)) {
             $this->actualities->add($actuality);
             $actuality->setUser($this);
         }
@@ -235,6 +244,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function isCoach(): bool
     {
         return $this->coach !== null;
+    }
+
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(CustomerOrder $order): static
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders->add($order);
+            $order->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(CustomerOrder $order): static
+    {
+        if ($this->orders->removeElement($order)) {
+            if ($order->getUser() === $this) {
+                $order->setUser(null);
+            }
+        }
+
+        return $this;
     }
 
     /**
