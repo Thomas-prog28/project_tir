@@ -17,12 +17,6 @@ class DashboardController extends AbstractController
         return new Response("Accueil");
     }
 
-    #[Route('/admin/dashboard', name: 'admin_dashboard')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function adminDashboard(): Response {
-        return new Response("Dashboard admin");
-    }
-
     #[Route('/member/dashboard', name: 'member_dashboard')]
     #[IsGranted(MemberVoter::MEMBER_ACCESS)]
     public function memberDashboard(): Response {

@@ -14,9 +14,9 @@ class RouterService extends AbstractController
     {
         // 1) ADMIN
         if ($user->isAdmin()) {
-            return $this->urlGenerator->generate('admin_dashboard');
+            return $this->urlGenerator->generate('admin');
         }
-        
+
         // Sécurité : incohérence métier, un coach doit toujours être membre
         if ($user->isCoach() && !$user->isMember()) {
             // TODO: logger/alerter — situation normalement impossible

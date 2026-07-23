@@ -13,7 +13,7 @@ class Coach
     #[ORM\JoinColumn(name: 'id_user', referencedColumnName: 'id_user')]
     private ?User $user = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $diplomaNumber = null;
 
     #[ORM\Column(length: 50, nullable: true)]
