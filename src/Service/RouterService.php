@@ -2,10 +2,11 @@
 
 namespace App\Service;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\User;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class RouterService
+class RouterService extends AbstractController
 {
     public function __construct(private UrlGeneratorInterface $urlGenerator) {}
 
@@ -14,6 +15,11 @@ class RouterService
         // 1) ADMIN
         if ($user->isAdmin()) {
             return $this->urlGenerator->generate('admin_dashboard');
+        }
+        
+        // Sécurité : incohérence métier, un coach doit toujours être membre
+        if ($user->isCoach() && !$user->isMember()) {
+            // TODO: logger/alerter — situation normalement impossible
         }
 
         // 2) USER sans statut

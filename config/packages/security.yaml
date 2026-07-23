@@ -33,14 +33,18 @@ security:
 
     # Note: Only the *first* matching rule is applied
     access_control:
-        # Pages admin 
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        # Pages utilisateurs connecté
-        - { path: ^/user, roles: ROLE_USER }
         # Pages publiques
-        - { path: ^/login, roles: PUBLIC_ACCESS }
-        - { path: ^/register, roles: PUBLIC_ACCESS }
-        - { path: ^/$, roles: PUBLIC_ACCESS }
+            - { path: ^/login, roles: PUBLIC_ACCESS }
+            - { path: ^/register, roles: PUBLIC_ACCESS }
+            - { path: ^/$, roles: PUBLIC_ACCESS }
+
+        # Zones nécessitant une connexion (le détail des droits est vérifié par IsGranted dans le contrôleur)
+            - { path: ^/admin, roles: ROLE_USER }
+            - { path: ^/member, roles: ROLE_USER }
+            - { path: ^/user, roles: ROLE_USER }
+
+        # Catch-all de sécurité : tout le reste nécessite une connexion
+            - { path: ^/, roles: ROLE_USER }
 
 when@test:
     security:
