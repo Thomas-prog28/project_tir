@@ -293,7 +293,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
-        public function isAdmin(): bool
+    public function isAdmin(): bool
     {
         return $this->siteRole === 'admin';
     }
@@ -328,5 +328,68 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials(): void
     {
         // @deprecated, to be removed when upgrading to Symfony 8
+    }
+
+
+    //Propriétés virtuelles pour le formulaire admin (non persistées en base)
+    private bool $coachEnabled = false;
+    private ?string $diplomaNumber = null;
+    private ?string $speciality = null;
+    private bool $caMemberEnabled = false;
+    private ?string $position = null;
+
+    public function isCoachEnabled(): bool
+    {
+        return $this->coachEnabled;
+    }
+
+    public function setCoachEnabled(bool $coachEnabled): static
+    {
+        $this->coachEnabled = $coachEnabled;
+        return $this;
+    }
+
+    public function getDiplomaNumber(): ?string
+    {
+        return $this->diplomaNumber;
+    }
+
+    public function setDiplomaNumber(?string $diplomaNumber): static
+    {
+        $this->diplomaNumber = $diplomaNumber;
+        return $this;
+    }
+
+    public function getSpeciality(): ?string
+    {
+        return $this->speciality;
+    }
+
+    public function setSpeciality(?string $speciality): static
+    {
+        $this->speciality = $speciality;
+        return $this;
+    }
+
+    public function isCaMemberEnabled(): bool
+    {
+        return $this->caMemberEnabled;
+    }
+
+    public function setCaMemberEnabled(bool $caMemberEnabled): static
+    {
+        $this->caMemberEnabled = $caMemberEnabled;
+        return $this;
+    }
+
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?string $position): static
+    {
+        $this->position = $position;
+        return $this;
     }
 }
