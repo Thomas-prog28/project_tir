@@ -10,7 +10,7 @@ class Coach
 {
     #[ORM\Id]
     #[ORM\OneToOne(inversedBy: 'coach', targetEntity: User::class, cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: 'id_user', referencedColumnName: 'id_user')]
+    #[ORM\JoinColumn(name: 'id_user', referencedColumnName: 'id_user', onDelete: 'CASCADE')]
     private ?User $user = null;
 
     #[ORM\Column(length: 50, nullable: true)]
@@ -18,9 +18,6 @@ class Coach
 
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $speciality = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $picture = null;
 
     public function getUser(): ?User
     {
@@ -39,7 +36,7 @@ class Coach
         return $this->diplomaNumber;
     }
 
-    public function setDiplomaNumber(string $diplomaNumber): static
+    public function setDiplomaNumber(?string $diplomaNumber): static
     {
         $this->diplomaNumber = $diplomaNumber;
 
@@ -54,18 +51,6 @@ class Coach
     public function setSpeciality(?string $speciality): static
     {
         $this->speciality = $speciality;
-
-        return $this;
-    }
-
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): static
-    {
-        $this->picture = $picture;
 
         return $this;
     }

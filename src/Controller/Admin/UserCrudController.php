@@ -15,7 +15,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -37,9 +40,17 @@ class UserCrudController extends AbstractCrudController
         yield TextField::new('name', 'Nom');
         yield TextField::new('firstname', 'Prénom');
         yield TextField::new('email', 'Email');
-        yield TextField::new('member.licenceNumber', 'N° Licence')
-            ->onlyOnIndex()
-            ->formatValue(fn ($value) => $value ?? '-');
+        yield TextField::new('licenceNumberDisplay', 'N° Licence');
+
+        //Affichage en liste/détail (utilise pictureName + uri_prefix Vich)
+        yield ImageField::new('pictureName', 'Photo')
+            ->setBasePath('uploads/images')
+            ->onlyOnIndex();
+
+        //champ d'upload dans le formulaire d'édition (utilise pictureFile, propriété Vich non persistée)
+        yield Field::new('pictureFile', 'Photo')
+            ->setFormType(VichImageType::class)
+            ->onlyOnForms();
         
         if ($pageName === Crud::PAGE_EDIT) {
             yield FormField::addFieldSet('Statut Coach');

@@ -11,7 +11,7 @@ class Member
 {
     #[ORM\Id]
     #[ORM\OneToOne(inversedBy: 'member', targetEntity: User::class, cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: 'id_user', referencedColumnName: 'id_user')]
+    #[ORM\JoinColumn(name: 'id_user', referencedColumnName: 'id_user', onDelete: 'CASCADE')]
     private ?User $user = null;
 
     #[ORM\Column(length: 50)]
@@ -19,9 +19,6 @@ class Member
 
     #[ORM\Column(length: 20, nullable: true, enumType: BowType::class)]
     private ?BowType  $bowType = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $picture = null;
 
     public function getUser(): ?User
     {
@@ -55,18 +52,6 @@ class Member
     public function setBowType(?BowType $bowType): static
     {
         $this->bowType = $bowType;
-
-        return $this;
-    }
-
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): static
-    {
-        $this->picture = $picture;
 
         return $this;
     }

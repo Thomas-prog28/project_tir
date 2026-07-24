@@ -1,0 +1,50 @@
+<header class="header">
+	<div class="header__container">
+
+		<a href="{{ path('app_home') }}" class="header__logo">
+			<img src="{{ asset('images/logo-archers.svg') }}" alt="Les Archers Drouais">
+		</a>
+
+		<nav class="header__nav">
+			<ul class="header__menu">
+				<li class="header__item">
+					<a href="{{ path('app_home') }}" class="header__link">Accueil</a>
+				</li>
+				<li class="header__item">
+					<a href="#" class="header__link">Le club</a>
+				</li>
+				<li class="header__item">
+					<a href="#" class="header__link">Disciplines</a>
+				</li>
+				<li class="header__item">
+					<a href="#" class="header__link">Contact</a>
+				</li>
+			</ul>
+		</nav>
+
+		<nav class="header__mobile-nav">
+			<ul class="header__mobile-menu">
+				<li>
+					<a href="#">Accueil</a>
+				</li>
+				<li>
+					<a href="#">Le club</a>
+				</li>
+				<li>
+					<a href="#">Disciplines</a>
+				</li>
+				<li>
+					<a href="#">Contact</a>
+				</li>
+			</ul>
+		</nav>
+
+
+		<button class="header__burger" aria-label="Menu">
+			<span class="header__burger-line"></span>
+			<span class="header__burger-line"></span>
+			<span class="header__burger-line"></span>
+		</button>
+
+	</div>
+</header>

@@ -10,14 +10,11 @@ class CaMember
 {
     #[ORM\Id]
     #[ORM\OneToOne(inversedBy: 'caMember', targetEntity: User::class, cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: 'id_user', referencedColumnName: 'id_user')]
+    #[ORM\JoinColumn(name: 'id_user', referencedColumnName: 'id_user', onDelete: 'CASCADE')]
     private ?User $user = null;
 
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $position = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $picture = null;
 
     public function getUser(): ?User
     {
@@ -36,21 +33,9 @@ class CaMember
         return $this->position;
     }
 
-    public function setPosition(string $position): static
+    public function setPosition(?string $position): static
     {
         $this->position = $position;
-
-        return $this;
-    }
-
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): static
-    {
-        $this->picture = $picture;
 
         return $this;
     }

@@ -4,11 +4,18 @@
 
 {% block body %}
     <h1>Register</h1>
-
-    {{ form_errors(registrationForm) }}
+{{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.name, {
+            label: 'Nom'
+        }) }}
+        {{ form_row(registrationForm.firstname, {
+            label: 'Prénom'
+        }) }}
+        {{ form_row(registrationForm.licenceNumber) }}
+        {{ form_row(registrationForm.pictureFile) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
