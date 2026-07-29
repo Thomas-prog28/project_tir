@@ -1,5 +1,12 @@
 @import 'layout/header';
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: skyblue;
+    font-family: 'Montserrat', sans-serif;
 }
