@@ -1,9 +1,7 @@
 const burger = document.querySelector('.header__burger');
-const mobileNav = document.querySelector('.header__mobile-nav');
+const menu = document.querySelector('.header__menu');
 
-if (burger && mobileNav) {
-    burger.addEventListener('click', () => {
-        mobileNav.style.display =
-            mobileNav.style.display === 'block' ? 'none' : 'block';
-    });
-}
+burger.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('header__menu--open');
+    burger.setAttribute('aria-expanded', isOpen);
+})
