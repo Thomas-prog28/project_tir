@@ -1,0 +1,28 @@
+.hero {
+    &__cta {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    &__button {
+        // styles communs aux deux boutons : padding, border-radius, font-weight, transition...
+        padding: 1rem 2rem;
+        border-radius: 999px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+
+        &--primary {
+            background: #f4c430; // jaune
+            color: #1e3a8a;
+        }
+
+        &--secondary {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+    }
+}
