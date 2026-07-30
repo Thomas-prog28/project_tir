@@ -36,8 +36,7 @@ security:
         # Pages publiques
             - { path: ^/login, roles: PUBLIC_ACCESS }
             - { path: ^/register, roles: PUBLIC_ACCESS }
-            - { path: ^/home$, roles: PUBLIC_ACCESS }
-            #- { path: ^/$, roles: PUBLIC_ACCESS }
+            - { path: ^/$, roles: PUBLIC_ACCESS }
 
         # Zones nécessitant une connexion (le détail des droits est vérifié par IsGranted dans le contrôleur)
             - { path: ^/admin, roles: ROLE_USER }

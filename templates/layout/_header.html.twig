@@ -1,45 +1,51 @@
 <header class="header">
-	<div class="header__container">
-
+	<div class="header__top">
 		<a href="{{ path('app_home') }}" class="header__logo">
 			<img src="{{ asset('images/logo-archers.svg') }}" alt="Les Archers Drouais">
 		</a>
 
 		<h1 class="header__title">les archers drouais</h1>
 
-		<nav class="header__nav">
-			<ul class="header__menu">
-				<li class="header__item">
-					<a href="{{ path('app_home') }}" class="header__link">Accueil</a>
-				</li>
-				<li class="header__item">
-					<a href="#" class="header__link">Le club</a>
-				</li>
-				<li class="header__item">
-					<a href="#" class="header__link">Infos Pratiques</a>
-				</li>
-				<li class="header__item">
-					<a href="#" class="header__link">Actualités</a>
-				</li>
-				<li class="header__item">
-					<a href="#" class="header__link">Concours</a>
-				</li>
-				<li class="header__item">
-					<a href="#" class="header__link">Boutique</a>
-				</li>
-				<li class="header__item header__item--actions">
-					<a href="#" class="header__cart">
-						<img src="{{ asset('images/panier.png') }}" alt="Panier"></a>
-					<a href="#" class="header__login">Se Connecter</a>
-				</li>
-			</ul>
-		</nav>
-
+		<div class="header__actions">
+			<a href="#" class="header__cart">
+				<img src="{{ asset('images/panier.png') }}" alt="Panier">
+			</a>
+			<a href="#" class="header__login">Se Connecter</a>
+		</div>
 		<button class="header__burger" aria-label="Menu">
 			<span class="header__burger-line"></span>
 			<span class="header__burger-line"></span>
 			<span class="header__burger-line"></span>
 		</button>
-
 	</div>
+	
+
+	<nav class="header__nav">
+		<ul class="header__menu">
+			<li class="header__item">
+				<a href="{{ path('app_home') }}" class="header__link">Accueil</a>
+			</li>
+			<li class="header__item">
+				<a href="#" class="header__link">Le club</a>
+			</li>
+			<li class="header__item">
+				<a href="#" class="header__link">Infos Pratiques</a>
+			</li>
+			<li class="header__item">
+				<a href="#" class="header__link">Actualités</a>
+			</li>
+			<li class="header__item">
+				<a href="#" class="header__link">Concours</a>
+			</li>
+			<li class="header__item">
+				<a href="#" class="header__link">Boutique</a>
+			</li>
+			<li class="header__item header__item--mobile-actions">
+				<a href="#" class="header__cart-mobile">
+					<img src="{{ asset('images/panier.png') }}" alt="Panier">
+				</a>
+				<a href="#" class="header__login-mobile">Se Connecter</a>
+			</li>
+		</ul>
+	</nav>
 </header>
