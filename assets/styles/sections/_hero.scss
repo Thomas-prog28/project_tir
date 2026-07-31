@@ -1,13 +1,63 @@
+@use '../abstracts/variables' as *;
+
 .hero {
-    &__cta {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: $background_hero;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__tag {
+        background: rgba(4, 1, 1, 0.333);
+        color: $tag_yellow;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        border-radius: 90px;
+        border: solid 1px $tag_yellow;
+        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        align-self: flex-start;
+    }
+
+    &__title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin: 1rem 0;
+    }
+
+    &__highlight {
+        font-weight: 700;
+        font-style: italic;
+
+        &--yellow {
+            color: $highlight_yellow;
+        }
+
+        &--red {
+            color: $highlight_red;
+        }
+    }
+
+    &__text {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        opacity: 0.9;
+    }
+
+    &__actions {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        align-items: flex-start;
+        align-items: center;
+        margin: 1.5rem 0;
     }
 
     &__button {
-        // styles communs aux deux boutons : padding, border-radius, font-weight, transition...
         padding: 1rem 2rem;
         border-radius: 999px;
         font-weight: 600;
@@ -15,14 +65,40 @@
         display: inline-block;
 
         &--primary {
-            background: #f4c430; // jaune
-            color: #1e3a8a;
+            background: $background_btn;
+            color: $btn;
         }
 
         &--secondary {
             background: transparent;
-            border: 2px solid #fff;
-            color: #fff;
+            border: 2px solid #ffffff;
+            color: #ffffff;
         }
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        border-radius: 999px;
+        padding: 0.5rem 1rem;
+        font-weight: 700;
+
+        &--affiliation {
+            background: $badge_yellow_bg;
+            color: $badge_yellow_text;
+        }
+
+        &--stat {
+            background: $badge_red_bg;
+            color: $badge_red_text;
+        }
+    }
+
+    &__badge-label {
+        display: block;
+        font-weight: 500;
+        font-size: 0.75rem;
+        text-transform: uppercase;
     }
 }
