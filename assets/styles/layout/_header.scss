@@ -108,6 +108,7 @@
     &__nav--open {
         @media (max-width: 767px) {
             display: block;
+            background: $background_nav;
         }
     }
 

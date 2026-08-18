@@ -3,31 +3,79 @@
 {# {% block title %}Hello HomeController!{% endblock %} #}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
 
-<section class="hero">
-        <p class="hero__tag">depuis 1976</p>
+	<section class="hero">
+		<p class="hero__tag">depuis 1976</p>
 
-        <h2 class="hero__title">
-            Visez la <span class="hero__highlight hero__highlight--yellow">précision</span>, 
-            atteignez <span class="hero__highlight hero__highlight--red">l'excellence</span>.
-        </h2>
-        
-        <p class="hero__text">Décvourez l'art du tir à l'arc à Dreux. Compétiteur, débutant ou amateur - le club des Archers Drouais vous accompagne dans la maîtrise du geste juste.</p>
+		<h2 class="hero__title">
+			Visez la
+			<span class="hero__highlight hero__highlight--yellow">précision</span>, 
+																				            atteignez
+			<span class="hero__highlight hero__highlight--red">l'excellence</span>.
+		</h2>
 
-        <div class="hero__actions">
-            <a href="#" class="hero__button hero__button--primary">Découvrir l'initiation</a>
-            <a href="#" class="hero__button hero__button--secondary">Nos discplines</a>
-        </div>
+		<p class="hero__text">Décvourez l'art du tir à l'arc à Dreux. Compétiteur, débutant ou amateur - le club des Archers Drouais vous accompagne dans la maîtrise du geste juste.</p>
 
-        <p class="hero__badge hero__badge--affiliation">
-            ffta <span class="hero__badge-label">club affilie</span>
-        </p>
-        <p class="hero__badge hero__badge--stat">
-        150+ <span class="hero__badge-label">archers licencies</span>
-        </p>
-</section>
+		<div class="hero__actions">
+			<a href="#" class="hero__button hero__button--primary">Découvrir l'initiation</a>
+			<a href="#" class="hero__button hero__button--secondary">Nos discplines</a>
+		</div>
+
+		<div class="hero__visual">
+			<div class="hero__carousel">
+				<div class="hero__carousel-track">
+					{% for i in 1..15 %}
+						<div class="hero__carousel-slide">
+							<img src="{{ asset('images/caroussel/photo' ~ i ~ '.webp') }}" alt="Photo du club {{ i }}" loading="lazy">
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<p class="hero__badge hero__badge--affiliation">
+				ffta
+				<span class="hero__badge-label">club affilie</span>
+			</p>
+			<p class="hero__badge hero__badge--stat">
+				150+
+				<span class="hero__badge-label">archers licencies</span>
+			</p>
+		</div>
+	</section>
+
+	<section class="stats">
+		<div class="stat">
+			<span class="stat__number">1976</span>
+			<span class="stat__label">Année de fondation</span>
+		</div>
+
+		<div class="stat">
+			<span class="stat__number">48</span>
+			<span class="stat__label">Ans d’histoire</span>
+		</div>
+
+		<div class="stat">
+			<span class="stat__number">4</span>
+			<span class="stat__label">Disciplines pratiquées</span>
+		</div>
+
+		<div class="stat">
+			<span class="stat__number">70m</span>
+			<span class="stat__label">Distance olympique</span>
+		</div>
+	</section>
+
+
 {% endblock %}

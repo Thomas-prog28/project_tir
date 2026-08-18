@@ -1,0 +1,28 @@
+@use '../abstracts/variables' as *;
+
+.stats {
+    background-color: $background_stats;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 40px 0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat__number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $color_date;
+}
+
+.stat__label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: #ccc;
+    text-transform: uppercase;
+}
