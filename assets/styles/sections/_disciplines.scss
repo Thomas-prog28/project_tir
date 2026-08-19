@@ -1,0 +1,118 @@
+@use '../abstracts/variables' as *;
+
+.disciplines {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+
+    &__header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-style: italic;
+        font-size: 2.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    &__underline {
+        display: flex;
+        // justify-content: center;
+        gap: 6px;
+        margin-top: 0.6rem;
+    }
+
+    &__underline-bar {
+        display: block;
+        height: 8px;
+        border-radius: 2px;
+
+        &--blue {
+            background: $bleu;
+            width: 38px;
+        }
+
+        &--red {
+            background: $red;
+            width: 28px;
+        }
+
+        &--yellow {
+            background: $yellow;
+            width: 18px;
+        }
+    }
+
+    &__text {
+        padding: 0 1.6rem;
+        color: $grey;
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
+
+.discipline-card {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;  
+
+    &__image {
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+
+        img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__text {
+        color: $grey;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+        padding: 0 1.6rem;
+    }
+
+    &__link {
+        display: inline-block;
+        color: $bleu;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+}
+
+// Tablette et desktop
+@media (min-width: 768px) {
+    .disciplines__list {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .discipline-card {
+        flex: 1;
+    }
+}

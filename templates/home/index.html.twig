@@ -22,7 +22,7 @@
 		<h2 class="hero__title">
 			Visez la
 			<span class="hero__highlight hero__highlight--yellow">précision</span>, 
-																				            atteignez
+																																								            atteignez
 			<span class="hero__highlight hero__highlight--red">l'excellence</span>.
 		</h2>
 
@@ -77,5 +77,158 @@
 		</div>
 	</section>
 
+	<section class="disciplines">
+		<div class="disciplines__header">
+			<h2 class="disciplines__title">nos disciplines
+				<span class="disciplines__underline" aria-hidden="true">
+					<span class="disciplines__underline-bar disciplines__underline-bar--blue"></span>
+					<span class="disciplines__underline-bar disciplines__underline-bar--red"></span>
+					<span class="disciplines__underline-bar disciplines__underline-bar--yellow"></span>
+				</span>
+			</h2>
+			<p class="disciplines__text">Du tir en salle au tir en pleine nature, nous couvrons toutes les facettes de l'archerie moderne et traditionnelle.</p>
+		</div>
+
+		<div class="disciplines__list">
+			<article class="discipline-card">
+				<div class="discipline-card__image">
+					<img src="{{ asset('images/disciplines/tirensalle.webp') }}" alt="Tir en salle">
+				</div>
+				<h3 class="discipline-card__title">Tir en salle</h3>
+				<p class="discipline-card__text">La discipline reine, pratiquée à 18 mètres sur blasons de 40cm ou trispots.</p>
+				<a href="#" class="discipline-card__link">En savoir plus...</a>
+			</article>
+
+			<article class="discipline-card">
+				<div class="discipline-card__image">
+					<img src="{{ asset('images/disciplines/tirexterieur.webp') }}" alt="Tir extérieur">
+				</div>
+				<h3 class="discipline-card__title">Tir extérieur</h3>
+				<p class="discipline-card__text">La distance olympique. Relevez le défi du vent, de la lumière et de la constance.</p>
+				<a href="#" class="discipline-card__link">En savoir plus...</a>
+			</article>
+
+			<article class="discipline-card">
+				<div class="discipline-card__image">
+					<img src="{{ asset('images/disciplines/tir3d.webp') }}" alt="Tir 3D">
+				</div>
+				<h3 class="discipline-card__title">Tir 3D</h3>
+				<p class="discipline-card__text">Tir nature, campagne et 3D en pleine forêt. Une immersion totale au cœur des bois.</p>
+				<a href="#" class="discipline-card__link">En savoir plus...</a>
+			</article>
+		</div>
+	</section>
+
+	<section class="values">
+		<div class="values__header">
+			<h2 class="values__title">
+				Plus qu'un sport,
+				<span class="values__title-highlight">une école de vie.</span>
+			</h2>
+			<p class="values__text">Le tir à l'arc développe le corps et l'esprit. Chaque flèche décochée est une leçon de patience, de rigueur et de dépassement.</p>
+		</div>
+
+		<ul class="values__list">
+			<li class="value-item">
+				<span class="value-item__number">[ 01 ]</span>
+				<h3 class="value-item__title">Concentration</h3>
+				<p class="value-item__text">Focalisation totale sur la cible, transposable au quotidien.</p>
+			</li>
+
+			<li class="value-item">
+				<span class="value-item__number">[ 02 ]</span>
+				<h3 class="value-item__title">Posture</h3>
+				<p class="value-item__text">Renforcement des muscles profonds et alignement du corps.</p>
+			</li>
+
+			<li class="value-item">
+				<span class="value-item__number">[ 03 ]</span>
+				<h3 class="value-item__title">Mental</h3>
+				<p class="value-item__text">Gestion du stress et maîtrise de la respiration.</p>
+			</li>
+
+			<li class="value-item">
+				<span class="value-item__number">[ 04 ]</span>
+				<h3 class="value-item__title">Régularité</h3>
+				<p class="value-item__text">La répétition du geste juste, jusqu'à la constance.</p>
+			</li>
+		</ul>
+
+		<div class="values__visual">
+			<img src="{{ asset('images/cible.webp') }}" alt="Cible touchée en plein centre par plusieurs flèches">
+			<div class="values__badge">
+				<span class="values__badge-number">10</span>
+				<span class="values__badge-label">Le score parfait</span>
+			</div>
+		</div>
+	</section>
+
+	<section class="partners">
+		<h2 class="partners__title">Partenaires &amp; Affiliations</h2>
+
+		<ul class="partners__list">
+			<li class="partners__item">FFTA</li>
+			<li class="partners__item">Ville de Dreux</li>
+			<li class="partners__item">Comité 28</li>
+			<li class="partners__item">Ligue Centre-Val de Loire</li>
+			<li class="partners__item">Sport Adapté</li>
+		</ul>
+	</section>
+
+	<footer class="footer">
+		<div class="footer__brand">
+			<img src="{{ asset('images/logo-archers.svg') }}" alt="logo du club des archers drouais" class="footer__logo">
+			<p class="footer__name">Les Archers Drouais</p>
+		</div>
+
+		<p class="footer__tagline">
+			Club affilié à la Fédération Française de Tir à l'Arc.<br>
+			Passion, rigueur et convivialité depuis 1976.
+		</p>
+
+		<div class="footer__columns">
+			<div class="footer__col">
+				<h3 class="footer__col-title">Navigation</h3>
+				<ul class="footer__links">
+					<li>
+						<a href="#">Le club</a>
+					</li>
+					<li>
+						<a href="#">Disciplines</a>
+					</li>
+					<li>
+						<a href="#">Bienfaits</a>
+					</li>
+					<li>
+						<a href="#">Actualités</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="footer__col">
+				<h3 class="footer__col-title">Contact</h3>
+				<ul class="footer__links">
+					<li>Dreux, 28100</li>
+					<li>
+						<a href="mailto:contact@lesarchersdrouais.fr">contact@lesarchersdrouais.fr</a>
+					</li>
+					<li>Eure-et-Loir, France</li>
+				</ul>
+			</div>
+		</div>
+
+		<hr class="footer__divider">
+
+		<p class="footer__copyright">© 2026 Club des Archers Drouais - Tous droits réservés</p>
+
+		<ul class="footer__legal">
+			<li>
+				<a href="#">Mentions légales</a>
+			</li>
+			<li>
+				<a href="#">Confidentialité</a>
+			</li>
+		</ul>
+	</footer>
 
 {% endblock %}

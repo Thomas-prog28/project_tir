@@ -1,8 +1,12 @@
 @use 'abstracts/variables';
 @use 'base/reset';
 @use 'layout/header';
+@use 'layout/footer';
 @use 'sections/hero';
 @use 'sections/stats';
+@use 'sections/disciplines';
+@use 'sections/values';
+@use 'sections/partners';
 
 
 

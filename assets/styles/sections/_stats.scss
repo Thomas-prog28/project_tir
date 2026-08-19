@@ -1,7 +1,7 @@
 @use '../abstracts/variables' as *;
 
 .stats {
-    background-color: $background_stats;
+    background-color: $background_navy;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -23,6 +23,6 @@
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.1rem;
-    color: #ccc;
+    color: $grey_marine;
     text-transform: uppercase;
 }

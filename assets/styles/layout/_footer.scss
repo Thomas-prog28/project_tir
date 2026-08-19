@@ -1,0 +1,130 @@
+@use '../abstracts/variables' as *;
+
+.footer {
+	background: $background_navy;
+	color: $grey_marine;
+	padding: 3rem 1.5rem 2rem;
+	text-align: center;
+
+	&__brand {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 1.5rem;
+	}
+
+	&__logo {
+		width: 56px;
+		height: 56px;
+	}
+
+	&__name {
+		font-size: 1.1rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	&__tagline {
+		color: $grey_marine;
+		font-size: 0.95rem;
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+	}
+
+	&__badges {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem;
+		padding: 0;
+		margin: 0 0 2.5rem;
+	}
+
+	&__columns {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		margin-bottom: 2.5rem;
+		text-align: center;
+	}
+
+	&__col-title {
+		font-size: 0.8rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: $tag_yellow;
+		margin-bottom: 1rem;
+	}
+
+	&__links {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+
+		li,
+		a {
+			color: $grey_marine;
+			font-size: 0.9rem;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: $colortext_btn;
+		}
+	}
+
+	&__divider {
+		border: none;
+		border-top: 1px solid rgba(255, 255, 255, 0.15);
+		margin-bottom: 1.5rem;
+	}
+
+	&__copyright {
+		color: $grey_marine;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 0.75rem;
+	}
+
+	&__legal {
+		list-style: none;
+		display: flex;
+		justify-content: center;
+		gap: 1.5rem;
+		padding: 0;
+		margin: 0;
+
+		a {
+			color: $grey_marine;
+			font-size: 0.75rem;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			text-decoration: none;
+		}
+	}
+}
+
+// Tablette et desktop
+@media (min-width: 768px) {
+	.partners__list {
+		flex-direction: row;
+		justify-content: center;
+		gap: 2.5rem;
+	}
+
+	.footer__columns {
+		flex-direction: row;
+		justify-content: center;
+		gap: 5rem;
+		text-align: left; // aligné à gauche par colonne, comme sur ta capture tablette
+	
+	}
+}

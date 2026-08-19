@@ -1,0 +1,125 @@
+@use '../abstracts/variables' as *;
+
+.values {
+	padding: 2rem 1.5rem;
+    background-color: $background_values;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+	&__header {
+		margin-bottom: 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+	}
+
+	&__title {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-bottom: 0.75rem;
+
+		&-highlight {
+            display: block;
+			color: $bleu;
+		}
+	}
+
+	&__text {
+		color: $colortext_values;
+		font-size: 0.95rem;
+		line-height: 1.6;
+        padding: 0 1.5rem;
+	}
+
+	&__list {
+		list-style: none;
+		margin: 0 0 2rem;
+		padding: 0;
+        text-align: center;
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+	}
+
+	&__visual {
+		position: relative;
+		border-radius: 16px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 280px;
+			object-fit: cover;
+			display: block;
+		}
+	}
+
+	&__badge {
+		position: absolute;
+		bottom: 1rem;
+		right: 1rem;
+		background: #2563eb;
+		color: #fff;
+		padding: 0.5rem 1rem;
+		border-radius: 10px;
+		text-align: center;
+		line-height: 1.2;
+	}
+
+	&__badge-number {
+		display: block;
+		font-size: 1.25rem;
+		font-weight: 700;
+	}
+
+	&__badge-label {
+		display: block;
+		font-size: 0.65rem;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+	}
+}
+
+.value-item {
+	&__number {
+		display: block;
+		color: $red;
+		font-weight: 700;
+		font-size: 0.85rem;
+		margin-bottom: 0.25rem;
+	}
+
+	&__title {
+		font-size: 1.05rem;
+		text-transform: uppercase;
+		margin-bottom: 0.25rem;
+	}
+
+	&__text {
+		color: $colortext_values;
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+}
+
+// Tablette et desktop
+@media (min-width: 768px) {
+	.values {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	.values__header,
+	.values__list {
+		grid-column: 1;
+	}
+
+	.values__visual {
+		grid-column: 2;
+		grid-row: 1 / 3;
+	}
+}

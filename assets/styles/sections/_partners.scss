@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+.partners {
+	padding: 2rem 1.5rem;
+	text-align: center;
+
+	&__title {
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		color: $grey;
+		margin-bottom: 1.5rem;
+	}
+
+	&__list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 0;
+		margin: 0;
+	}
+
+	&__item {
+		font-weight: 600;
+		color: $grey;
+	}
+}
